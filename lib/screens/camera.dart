@@ -1,47 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 
 class cameraTab extends StatefulWidget {
-  final List<CameraDescription> cameras;
-
-  cameraTab(this.cameras);
-
   @override
-  cameraTabState createState() {
-    return new cameraTabState();
-  }
+  _cameraTabState createState() => _cameraTabState();
 }
 
-class cameraTabState extends State<cameraTab> {
-  CameraController controller;
+class _cameraTabState extends State<cameraTab> {
+  File _image;
 
-  @override
-  void initState() {
-    super.initState();
-    controller =
-    new CameraController(widget.cameras[0], ResolutionPreset.medium);
-    controller.initialize().then((_) {
-      if (!mounted) {
-        return;
-      }
-      setState(() {});
+  Future getImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.camera);
+    setState(() {
+      _image = image;
     });
   }
 
   @override
-  void dispose() {
-    controller?.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    if (!controller.value.isInitialized) {
-      return new Container();
-    }
-    return new AspectRatio(
-      aspectRatio: controller.value.aspectRatio,
-      child: new CameraPreview(controller),
+    // TODO: implement build
+    return Scaffold(
+      body: Column(
+        children: <Widget>[
+          SizedBox(
+            height: 1,
+          ),
+          Expanded(
+            child: Center(
+              child: _image == null
+                  ? Text("No Image Selected")
+                  : Image.file(_image),
+            ),
+          ),
+          RaisedButton(
+            onPressed: () {
+              getImage();
+            },
+            child: Text("Take Image"),
+          ),
+          SizedBox(
+            height: 10,
+          )
+        ],
+      ),
+//      floatingActionButton: FloatingActionButton(
+//        onPressed: (){
+//          getImage();
+//        },
+//        tooltip: 'Pick Image',
+//        child: Icon(Icons.camera_alt),
+//      ),
     );
   }
 }

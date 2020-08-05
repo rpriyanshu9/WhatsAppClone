@@ -5,8 +5,8 @@ import 'package:whatsappclone/screens/chats.dart';
 import 'package:whatsappclone/screens/status.dart';
 
 class WhatsAppHome extends StatefulWidget {
-  var cameras;
-  WhatsAppHome(this.cameras);
+//  var cameras;
+//  WhatsAppHome(this.cameras);
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -52,17 +52,10 @@ class _WhatsAppHome extends State<WhatsAppHome>
           Icon(Icons.more_vert),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(
-          Icons.message,
-          color: Colors.white,
-        ),
-      ),
       body: Container(
           child: TabBarView(
         controller: _tabController,
-        children: <Widget>[cameraTab(widget.cameras), chatsTab(), statusTab(), callsTab()],
+        children: <Widget>[cameraTab(), chatsTab(), statusTab(), callsTab()],
       )),
     );
   }
