@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:whatsappclone/models/model.dart';
 
-class chatsTab extends StatefulWidget {
+class ChatsTab extends StatefulWidget {
   @override
-  _chatsTabState createState() => _chatsTabState();
+  _ChatsTabState createState() => _ChatsTabState();
 }
 
-class _chatsTabState extends State<chatsTab> {
+class _ChatsTabState extends State<ChatsTab> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

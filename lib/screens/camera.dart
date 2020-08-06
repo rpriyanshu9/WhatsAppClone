@@ -3,12 +3,12 @@ import 'package:camera/camera.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
-class cameraTab extends StatefulWidget {
+class CameraTab extends StatefulWidget {
   @override
-  _cameraTabState createState() => _cameraTabState();
+  _CameraTabState createState() => _CameraTabState();
 }
 
-class _cameraTabState extends State<cameraTab> {
+class _CameraTabState extends State<CameraTab> {
   File _image;
 
   Future getImage() async {

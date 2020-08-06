@@ -55,7 +55,7 @@ class _WhatsAppHome extends State<WhatsAppHome>
       body: Container(
           child: TabBarView(
         controller: _tabController,
-        children: <Widget>[cameraTab(), chatsTab(), statusTab(), callsTab()],
+        children: <Widget>[CameraTab(), ChatsTab(), StatusTab(), CallsTab()],
       )),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class statusTab extends StatelessWidget{
+class StatusTab extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
